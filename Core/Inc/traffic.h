@@ -10,6 +10,7 @@
 
 #include <stdint.h>
 #include "main.h"
+#include "ryg-leds.h"
 //#include "fsm.h"
 
 #define TRAFFIC_NUMBER 2
