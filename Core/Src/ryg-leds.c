@@ -13,6 +13,7 @@
  * 10 == GREEN
  * 00 == NONE
  * */
+
 static GPIO_TypeDef* controlTraffic0Ports[TRAFFIC_NUMBER] = {CONTROL_TRAFFIC0_0_GPIO_Port, CONTROL_TRAFFIC1_0_GPIO_Port};
 static uint16_t controlTraffic0Pins[TRAFFIC_NUMBER] = {CONTROL_TRAFFIC0_0_Pin, CONTROL_TRAFFIC1_0_Pin};
 
