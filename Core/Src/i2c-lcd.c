@@ -76,3 +76,35 @@ void lcd_goto_XY (int row, int col)
 	}
 	lcd_send_cmd(pos_Addr);
 }
+
+void lcd_counter()
+{
+	lcd_clear_display();
+	// Display traffic0
+	lcd_goto_XY(0, 0);
+	lcd_send_data(trafficCounters[0]);
+	// Display traffic1
+	lcd_goto_XY(1, 0);
+	lcd_send_data(trafficCounters[1]);
+}
+
+void lcd_red_duration()
+{
+	lcd_clear_display();
+	lcd_goto_XY(0, 0);
+	lcd_send_data(trafficRedDuration);
+}
+
+void lcd_green_duration()
+{
+	lcd_clear_display();
+	lcd_goto_XY(0, 0);
+	lcd_send_data(trafficGreenDuration);
+}
+
+void lcd_yellow_duration()
+{
+	lcd_clear_display();
+	lcd_goto_XY(0, 0);
+	lcd_send_data(trafficYellowDuration);
+}
