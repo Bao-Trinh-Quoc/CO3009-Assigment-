@@ -1,0 +1,11 @@
+../Core/Src/fsm.c:23:6:fsmAutoStop	1
+../Core/Src/fsm.c:30:6:fsmAutoProcessing	1
+../Core/Src/fsm.c:34:6:fsmAuto	1
+../Core/Src/fsm.c:46:6:fsmManualStop	1
+../Core/Src/fsm.c:51:6:fsmManualProcessing	11
+../Core/Src/fsm.c:84:6:fsmManual	1
+../Core/Src/fsm.c:91:6:fsmTunningStop	1
+../Core/Src/fsm.c:95:6:fsmTunningProcessing	22
+../Core/Src/fsm.c:200:6:fsmTunning	1
+../Core/Src/fsm.c:211:6:fsmInit	1
+../Core/Src/fsm.c:217:6:fsmProcessing	11

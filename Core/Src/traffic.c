@@ -5,6 +5,8 @@
  *      Author: DELL
  */
 
+#include "traffic.h"
+
 uint32_t trafficRedDuration = 5000;
 uint32_t trafficGreenDuration = 3000;
 uint32_t trafficYellowDuration = 2000;

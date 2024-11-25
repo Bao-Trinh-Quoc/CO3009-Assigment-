@@ -10,6 +10,7 @@
 
 #include "main.h"
 #include "button.h"
+#include "traffic.h"
 
 void testMCU(void);
 void testButton(void);

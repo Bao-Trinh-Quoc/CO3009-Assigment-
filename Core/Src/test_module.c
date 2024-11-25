@@ -4,6 +4,7 @@
  *  Created on: Nov 22, 2024
  *      Author: DELL
  */
+#include "test_module.h"
 
 void testMCU(void) {
 	HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
@@ -13,4 +14,10 @@ void testButton(void) {
 }
 void testLED(void) {
 	// Add code to test here if needed
+	turnOnGreen(0);
+	turnOnGreen(1);
+	turnOnRed(0);
+	turnOnRed(1);
+	turnOnYellow(0);
+	turnOnYellow(1);
 }

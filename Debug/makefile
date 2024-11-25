@@ -52,6 +52,9 @@ default.size.stdout \
 OBJDUMP_LIST += \
 traffic_light_assignment.list \
 
+OBJCOPY_HEX += \
+traffic_light_assignment.hex \
+
 
 # All Target
 all: main-build
@@ -75,12 +78,17 @@ traffic_light_assignment.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_T
 	@echo 'Finished building: $@'
 	@echo ' '
 
+traffic_light_assignment.hex: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O ihex $(EXECUTABLES) "traffic_light_assignment.hex"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 # Other Targets
 clean:
-	-$(RM) default.size.stdout traffic_light_assignment.elf traffic_light_assignment.list traffic_light_assignment.map
+	-$(RM) default.size.stdout traffic_light_assignment.elf traffic_light_assignment.hex traffic_light_assignment.list traffic_light_assignment.map
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_HEX)
 
 fail-specified-linker-script-missing:
 	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'
