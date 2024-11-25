@@ -26,5 +26,7 @@ void lcd_goto_XY (int row, int col); //set proper location on screen
 
 void lcd_counter();
 void lcd_red_duration();
+void lcd_green_duration();
+void lcd_yellow_duration();
 
 #endif /* INC_I2C_LCD_H_ */
