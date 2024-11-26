@@ -291,8 +291,7 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, LED_RED_Pin|BUTTON0_Pin|BUTTON1_Pin|BUTTON2_Pin
-                          |BUTTON3_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOC, CONTROL_TRAFFIC0_0_Pin|CONTROL_TRAFFIC0_1_Pin|CONTROL_TRAFFIC1_0_Pin|CONTROL_TRAFFIC1_1_Pin, GPIO_PIN_RESET);
@@ -303,14 +302,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(B1_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : LED_RED_Pin BUTTON0_Pin BUTTON1_Pin BUTTON2_Pin
-                           BUTTON3_Pin */
-  GPIO_InitStruct.Pin = LED_RED_Pin|BUTTON0_Pin|BUTTON1_Pin|BUTTON2_Pin
-                          |BUTTON3_Pin;
+  /*Configure GPIO pin : LED_RED_Pin */
+  GPIO_InitStruct.Pin = LED_RED_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+  HAL_GPIO_Init(LED_RED_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : CONTROL_TRAFFIC0_0_Pin CONTROL_TRAFFIC0_1_Pin CONTROL_TRAFFIC1_0_Pin CONTROL_TRAFFIC1_1_Pin */
   GPIO_InitStruct.Pin = CONTROL_TRAFFIC0_0_Pin|CONTROL_TRAFFIC0_1_Pin|CONTROL_TRAFFIC1_0_Pin|CONTROL_TRAFFIC1_1_Pin;
@@ -318,6 +315,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : BUTTON0_Pin BUTTON1_Pin BUTTON2_Pin BUTTON3_Pin */
+  GPIO_InitStruct.Pin = BUTTON0_Pin|BUTTON1_Pin|BUTTON2_Pin|BUTTON3_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /* EXTI interrupt init*/
   HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 0);

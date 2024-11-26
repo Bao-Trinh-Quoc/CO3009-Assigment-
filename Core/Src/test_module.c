@@ -11,6 +11,9 @@ void testMCU(void) {
 }
 void testButton(void) {
 	// Add code to test here if needed
+	if (buttonPressed(0) || buttonPressed(1) || buttonPressed(2) || buttonPressed(3)) {
+		HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
+	}
 }
 void testLED(void) {
 	// Add code to test here if needed
@@ -20,4 +23,5 @@ void testLED(void) {
 	turnOnRed(1);
 	turnOnYellow(0);
 	turnOnYellow(1);
+
 }
