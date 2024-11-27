@@ -1,3 +1,3 @@
 ../Core/Src/test_module.c:9:6:testMCU	1
-../Core/Src/test_module.c:12:6:testButton	1
-../Core/Src/test_module.c:15:6:testLED	1
+../Core/Src/test_module.c:12:6:testButton	5
+../Core/Src/test_module.c:18:6:testLED	1

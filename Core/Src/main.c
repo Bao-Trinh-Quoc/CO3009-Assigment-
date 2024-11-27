@@ -27,6 +27,7 @@
 #include "fsm.h"
 #include "scheduler.h"
 #include "test_module.h"
+#include "i2c-lcd.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -105,6 +106,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start_IT(&htim2);
   SCH_Init();
+  lcd_init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
