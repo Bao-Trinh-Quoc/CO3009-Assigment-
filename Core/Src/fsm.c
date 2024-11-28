@@ -34,13 +34,14 @@ void fsmAutoProcessing(void) {
 void fsmAuto(void) {
 	fsmAutoIDs[0] = SCH_AddTask(fsmAutoProcessing, 10, TIMER_TICK);
 	fsmAutoIDs[1] = SCH_AddTask(counterRun, 0, TIMER_TICK);
-	fsmAutoIDs[2] = SCH_AddTask(lcd_counter, 0, 1000);
-	fsmAutoIDs[3] = SCH_AddTask(traffic0Red, 0, trafficRedDuration + trafficYellowDuration + trafficGreenDuration);
-	fsmAutoIDs[4] = SCH_AddTask(traffic0Green, trafficRedDuration, trafficRedDuration + trafficYellowDuration + trafficGreenDuration);
-	fsmAutoIDs[5] = SCH_AddTask(traffic0Yellow, trafficRedDuration + trafficGreenDuration, trafficRedDuration + trafficYellowDuration + trafficGreenDuration);
-	fsmAutoIDs[6] = SCH_AddTask(traffic1Green, 0, trafficRedDuration + trafficYellowDuration + trafficGreenDuration);
-	fsmAutoIDs[7] = SCH_AddTask(traffic1Yellow, trafficGreenDuration, trafficRedDuration + trafficYellowDuration + trafficGreenDuration);
-	fsmAutoIDs[8] = SCH_AddTask(traffic1Red, trafficGreenDuration + trafficYellowDuration, trafficRedDuration + trafficYellowDuration + trafficGreenDuration);
+//	fsmAutoIDs[2] = SCH_AddTask(lcd_auto_display, 0, 1000);
+	fsmAutoIDs[2] = SCH_AddTask(traffic0Red, 0, trafficRedDuration + trafficYellowDuration + trafficGreenDuration);
+	fsmAutoIDs[3] = SCH_AddTask(traffic0Green, trafficRedDuration, trafficRedDuration + trafficYellowDuration + trafficGreenDuration);
+	fsmAutoIDs[4] = SCH_AddTask(traffic0Yellow, trafficRedDuration + trafficGreenDuration, trafficRedDuration + trafficYellowDuration + trafficGreenDuration);
+	fsmAutoIDs[5] = SCH_AddTask(traffic1Green, 0, trafficRedDuration + trafficYellowDuration + trafficGreenDuration);
+	fsmAutoIDs[6] = SCH_AddTask(traffic1Yellow, trafficGreenDuration, trafficRedDuration + trafficYellowDuration + trafficGreenDuration);
+	fsmAutoIDs[7] = SCH_AddTask(traffic1Red, trafficGreenDuration + trafficYellowDuration, trafficRedDuration + trafficYellowDuration + trafficGreenDuration);
+	fsmAutoIDs[8] = SCH_AddTask(lcd_auto_display, 0, 1000);
 }
 
 void fsmManualStop(void) {
@@ -86,6 +87,7 @@ void fsmManual(void) {
 	// Initialize for Manual Mode
 	SCH_AddTask(traffic0Red, 0, 0);
 	SCH_AddTask(traffic1Green, 0, 0);
+	SCH_AddTask(lcd_manual_display, 0, 0);
 }
 
 void fsmTunningStop(void) {
@@ -100,7 +102,7 @@ void fsmTunningProcessing(void) {
 			SCH_DeleteTask(fsmTunningIDs[4]);
 			switch (fsmTunningState) {
 				case TRAFFIC_RED:
-					SCH_AddTask(lcd_red_duration, 0, 0);
+					SCH_AddTask(lcd_tunning_green, 0, 0);
 					fsmTunningIDs[1] = SCH_AddTask(traffic0Green, 0, 1000);
 					fsmTunningIDs[2] = SCH_AddTask(traffic1Green, 0, 1000);
 					fsmTunningIDs[3] = SCH_AddTask(traffic0Off, 500, 1000);
@@ -108,7 +110,7 @@ void fsmTunningProcessing(void) {
 					fsmTunningState = TRAFFIC_GREEN;
 					break;
 				case TRAFFIC_GREEN:
-					SCH_AddTask(lcd_green_duration, 0, 0);
+					SCH_AddTask(lcd_tunning_yellow, 0, 0);
 					fsmTunningIDs[1] = SCH_AddTask(traffic0Yellow, 0, 1000);
 					fsmTunningIDs[2] = SCH_AddTask(traffic1Yellow, 0, 1000);
 					fsmTunningIDs[3] = SCH_AddTask(traffic0Off, 500, 1000);
@@ -116,7 +118,7 @@ void fsmTunningProcessing(void) {
 					fsmTunningState = TRAFFIC_YELLOW;
 					break;
 				case TRAFFIC_YELLOW:
-					SCH_AddTask(lcd_yellow_duration, 0, 0);
+					SCH_AddTask(lcd_tunning_red, 0, 0);
 					fsmTunningIDs[1] = SCH_AddTask(traffic0Red, 0, 1000);
 					fsmTunningIDs[2] = SCH_AddTask(traffic1Red, 0, 1000);
 					fsmTunningIDs[3] = SCH_AddTask(traffic0Off, 500, 1000);
@@ -137,7 +139,7 @@ void fsmTunningProcessing(void) {
 					else {
 						trafficRedDuration = TRAFFIC_DURATION_MAX;
 					}
-					SCH_AddTask(lcd_red_duration, 0, 0);
+					SCH_AddTask(lcd_tunning_red, 0, 0);
 					break;
 				case TRAFFIC_GREEN:
 					if (trafficGreenDuration < TRAFFIC_DURATION_MAX - TRAFFIC_DURATION_AUTO) {
@@ -146,7 +148,7 @@ void fsmTunningProcessing(void) {
 					else {
 						trafficGreenDuration = TRAFFIC_DURATION_MAX;
 					}
-					SCH_AddTask(lcd_green_duration, 0, 0);
+					SCH_AddTask(lcd_tunning_green, 0, 0);
 					break;
 				case TRAFFIC_YELLOW:
 					if (trafficYellowDuration < TRAFFIC_DURATION_MAX - TRAFFIC_DURATION_AUTO) {
@@ -155,7 +157,7 @@ void fsmTunningProcessing(void) {
 					else {
 						trafficYellowDuration = TRAFFIC_DURATION_MAX;
 					}
-					SCH_AddTask(lcd_yellow_duration, 0, 0);
+					SCH_AddTask(lcd_tunning_yellow, 0, 0);
 					break;
 				default:
 					break;
@@ -171,7 +173,7 @@ void fsmTunningProcessing(void) {
 					else {
 						trafficRedDuration = TRAFFIC_DURATION_MIN;
 					}
-					SCH_AddTask(lcd_red_duration, 0, 0);
+					SCH_AddTask(lcd_tunning_red, 0, 0);
 					break;
 				case TRAFFIC_GREEN:
 					if (trafficGreenDuration > TRAFFIC_DURATION_MIN + TRAFFIC_DURATION_AUTO) {
@@ -180,7 +182,7 @@ void fsmTunningProcessing(void) {
 					else {
 						trafficGreenDuration = TRAFFIC_DURATION_MIN;
 					}
-					SCH_AddTask(lcd_green_duration, 0, 0);
+					SCH_AddTask(lcd_tunning_green, 0, 0);
 					break;
 				case TRAFFIC_YELLOW:
 					if (trafficYellowDuration > TRAFFIC_DURATION_MIN + TRAFFIC_DURATION_AUTO) {
@@ -189,7 +191,7 @@ void fsmTunningProcessing(void) {
 					else {
 						trafficYellowDuration = TRAFFIC_DURATION_MIN;
 					}
-					SCH_AddTask(lcd_yellow_duration, 0, 0);
+					SCH_AddTask(lcd_tunning_yellow, 0, 0);
 					break;
 				default:
 					break;
@@ -201,7 +203,7 @@ void fsmTunning(void) {
 	fsmTunningIDs[0] = SCH_AddTask(fsmTunningProcessing, 10, TIMER_TICK);
 	// Initialize for Tunning Mode
 	fsmTunningState = TRAFFIC_RED;
-	SCH_AddTask(lcd_red_duration, 0, 0);
+	SCH_AddTask(lcd_tunning_red, 0, 0);
 	fsmTunningIDs[1] = SCH_AddTask(traffic0Red, 0, 1000);
 	fsmTunningIDs[2] = SCH_AddTask(traffic1Red, 0, 1000);
 	fsmTunningIDs[3] = SCH_AddTask(traffic0Off, 500, 1000);
@@ -210,7 +212,8 @@ void fsmTunning(void) {
 
 void fsmInit(void) {
 	fsmState = FSM_INIT;
-	fsmIDs[0] = SCH_AddTask(testLED, 0, 0);
+	SCH_AddTask(lcd_init_display, 0, 0);
+//	fsmIDs[0] = SCH_AddTask(testLED, 0, 0);
 //	SCH_AddTask(testButton, 0, TIMER_TICK);
 }
 
