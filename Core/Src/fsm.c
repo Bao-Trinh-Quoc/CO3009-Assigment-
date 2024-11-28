@@ -217,47 +217,47 @@ void fsmInit(void) {
 void fsmProcessing(void) {
 	if (buttonPressed(0)) {
 		switch (fsmState) {
-		case FSM_INIT:
-			for (uint8_t i = 0; i < FSM_TASK; i ++) {
-				SCH_DeleteTask(fsmIDs[i]);
-			}
-			SCH_AddTask(fsmAuto, 10, 0);
-			fsmState = FSM_AUTO;
-			break;
-		case FSM_AUTO:
-			for (uint8_t i = 0; i < FSM_AUTO_TASK; i ++) {
-				SCH_DeleteTask(fsmAutoIDs[i]);
-			}
-			SCH_AddTask(fsmAutoStop, 0, 0);
-			SCH_AddTask(fsmManual, 10, 0);
-			fsmState = FSM_MANUAL;
-			break;
-		case FSM_MANUAL:
-			for (uint8_t i = 0; i < FSM_MANUAL_TASK; i ++) {
-				SCH_DeleteTask(fsmManualIDs[i]);
-			}
-			SCH_AddTask(fsmManualStop, 0, 0);
-			SCH_AddTask(fsmTunning, 10, 0);
-			fsmState = FSM_TUNNING;
-			break;
-		case FSM_TUNNING:
-			for (uint8_t i = 0; i < FSM_TUNNING_TASK; i ++) {
-				SCH_DeleteTask(fsmTunningIDs[i]);
-			}
-			SCH_AddTask(fsmTunningStop, 0, 0);
-			SCH_AddTask(fsmAuto, 10, 0);
-			fsmState = FSM_AUTO;
+			case FSM_INIT:
+				for (uint8_t i = 0; i < FSM_TASK; i ++) {
+					SCH_DeleteTask(fsmIDs[i]);
+				}
+				SCH_AddTask(fsmAuto, 10, 0);
+				fsmState = FSM_AUTO;
+				break;
+			case FSM_AUTO:
+				for (uint8_t i = 0; i < FSM_AUTO_TASK; i ++) {
+					SCH_DeleteTask(fsmAutoIDs[i]);
+				}
+				SCH_AddTask(fsmAutoStop, 0, 0);
+				SCH_AddTask(fsmManual, 10, 0);
+				fsmState = FSM_MANUAL;
+				break;
+			case FSM_MANUAL:
+				for (uint8_t i = 0; i < FSM_MANUAL_TASK; i ++) {
+					SCH_DeleteTask(fsmManualIDs[i]);
+				}
+				SCH_AddTask(fsmManualStop, 0, 0);
+				SCH_AddTask(fsmTunning, 10, 0);
+				fsmState = FSM_TUNNING;
+				break;
+			case FSM_TUNNING:
+				for (uint8_t i = 0; i < FSM_TUNNING_TASK; i ++) {
+					SCH_DeleteTask(fsmTunningIDs[i]);
+				}
+				SCH_AddTask(fsmTunningStop, 0, 0);
+				SCH_AddTask(fsmAuto, 10, 0);
+				fsmState = FSM_AUTO;
 
-			// If the time between red, green, light isn't correct
-			if (trafficRedDuration != (trafficGreenDuration + trafficYellowDuration)) {
-				// Set it to default
-				trafficRedDuration = 5000;
-				trafficGreenDuration = 3000;
-				trafficYellowDuration = 2000;
-			}
-			break;
-		default:
-			break;
+				// If the time between red, green, light isn't correct
+				if (trafficRedDuration != (trafficGreenDuration + trafficYellowDuration)) {
+					// Set it to default
+					trafficRedDuration = 5000;
+					trafficGreenDuration = 3000;
+					trafficYellowDuration = 2000;
+				}
+				break;
+			default:
+				break;
 		}
 	}
 }
