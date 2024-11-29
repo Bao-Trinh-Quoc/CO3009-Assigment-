@@ -27,7 +27,7 @@ Core/Src/fsm.o: ../Core/Src/fsm.c ../Core/Inc/fsm.h ../Core/Inc/button.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h \
  ../Core/Inc/counter.h ../Core/Inc/traffic.h ../Core/Inc/ryg-leds.h \
  ../Core/Inc/fsm.h ../Core/Inc/scheduler.h ../Core/Inc/test_module.h \
- ../Core/Inc/i2c-lcd.h
+ ../Core/Inc/i2c-lcd.h ../Core/Inc/server_button.h
 ../Core/Inc/fsm.h:
 ../Core/Inc/button.h:
 ../Core/Inc/main.h:
@@ -64,3 +64,4 @@ Core/Src/fsm.o: ../Core/Src/fsm.c ../Core/Inc/fsm.h ../Core/Inc/button.h \
 ../Core/Inc/scheduler.h:
 ../Core/Inc/test_module.h:
 ../Core/Inc/i2c-lcd.h:
+../Core/Inc/server_button.h:

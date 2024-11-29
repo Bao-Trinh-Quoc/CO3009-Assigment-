@@ -14,6 +14,7 @@
 #include "test_module.h"
 #include "traffic.h"
 #include "i2c-lcd.h"
+#include "server_button.h"
 
 enum FSM_STATE {FSM_INIT, FSM_AUTO, FSM_MANUAL, FSM_TUNNING};
 extern enum FSM_STATE fsmState;

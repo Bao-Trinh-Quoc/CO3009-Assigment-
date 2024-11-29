@@ -28,6 +28,7 @@
 #include "scheduler.h"
 #include "test_module.h"
 #include "i2c-lcd.h"
+#include "server_button.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -112,9 +113,11 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   SCH_AddTask(testMCU, 0, 500);
   SCH_AddTask(buttonReading, 0, TIMER_TICK);
+  SCH_AddTask(server_button_reading, 0, TIMER_TICK);
   SCH_AddTask(fsmInit, 0, 0);
   SCH_AddTask(LCD_I2C_Init, 0, 0);
   SCH_AddTask(fsmProcessing, 10, TIMER_TICK);
+
   while (1)
   {
 	  SCH_Dispatch();

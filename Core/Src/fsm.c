@@ -95,7 +95,7 @@ void fsmTunningStop(void) {
 }
 
 void fsmTunningProcessing(void) {
-		if (buttonPressed(1)) {
+		if (buttonPressed(1) || server_button_pressed(1)) {
 			SCH_DeleteTask(fsmTunningIDs[1]);
 			SCH_DeleteTask(fsmTunningIDs[2]);
 			SCH_DeleteTask(fsmTunningIDs[3]);
@@ -130,7 +130,7 @@ void fsmTunningProcessing(void) {
 			}
 		}
 
-		if (buttonPressed(2)) {
+		if (buttonPressed(2) || server_button_pressed(2)) {
 			switch (fsmTunningState) {
 				case TRAFFIC_RED:
 					if (trafficRedDuration < TRAFFIC_DURATION_MAX - TRAFFIC_DURATION_AUTO) {
@@ -164,7 +164,7 @@ void fsmTunningProcessing(void) {
 			}
 		}
 
-		if (buttonPressed(3)) {
+		if (buttonPressed(3) || server_button_pressed(3)) {
 			switch (fsmTunningState) {
 				case TRAFFIC_RED:
 					if (trafficRedDuration > TRAFFIC_DURATION_MIN + TRAFFIC_DURATION_AUTO) {
@@ -218,7 +218,7 @@ void fsmInit(void) {
 }
 
 void fsmProcessing(void) {
-	if (buttonPressed(0)) {
+	if (buttonPressed(0) || server_button_pressed(0)) {
 		switch (fsmState) {
 			case FSM_INIT:
 				for (uint8_t i = 0; i < FSM_TASK; i ++) {

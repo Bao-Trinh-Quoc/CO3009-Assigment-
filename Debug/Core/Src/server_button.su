@@ -1,0 +1,2 @@
+../Core/Src/server_button.c:16:6:server_button_reading	16	static
+../Core/Src/server_button.c:30:15:server_button_pressed	16	static

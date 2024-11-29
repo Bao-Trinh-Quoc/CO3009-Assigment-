@@ -1,4 +1,5 @@
-Core/Src/i2c-lcd.o: ../Core/Src/i2c-lcd.c ../Core/Inc/i2c-lcd.h \
+Core/Src/server_button.o: ../Core/Src/server_button.c \
+ ../Core/Inc/server_button.h ../Core/Inc/main.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h \
  ../Core/Inc/stm32f1xx_hal_conf.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h \
@@ -24,12 +25,9 @@ Core/Src/i2c-lcd.o: ../Core/Src/i2c-lcd.c ../Core/Inc/i2c-lcd.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
- ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h \
- ../Core/Inc/traffic.h ../Core/Inc/main.h ../Core/Inc/ryg-leds.h \
- ../Core/Inc/fsm.h ../Core/Inc/button.h ../Core/Inc/counter.h \
- ../Core/Inc/scheduler.h ../Core/Inc/test_module.h ../Core/Inc/i2c-lcd.h \
- ../Core/Inc/server_button.h
-../Core/Inc/i2c-lcd.h:
+ ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
+../Core/Inc/server_button.h:
+../Core/Inc/main.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:
 ../Core/Inc/stm32f1xx_hal_conf.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h:
@@ -56,13 +54,3 @@ Core/Src/i2c-lcd.o: ../Core/Src/i2c-lcd.c ../Core/Inc/i2c-lcd.h \
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:
-../Core/Inc/traffic.h:
-../Core/Inc/main.h:
-../Core/Inc/ryg-leds.h:
-../Core/Inc/fsm.h:
-../Core/Inc/button.h:
-../Core/Inc/counter.h:
-../Core/Inc/scheduler.h:
-../Core/Inc/test_module.h:
-../Core/Inc/i2c-lcd.h:
-../Core/Inc/server_button.h:

@@ -28,7 +28,7 @@ Core/Src/ryg-leds.o: ../Core/Src/ryg-leds.c ../Core/Inc/ryg-leds.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h \
  ../Core/Inc/ryg-leds.h ../Core/Inc/fsm.h ../Core/Inc/button.h \
  ../Core/Inc/counter.h ../Core/Inc/scheduler.h ../Core/Inc/test_module.h \
- ../Core/Inc/i2c-lcd.h
+ ../Core/Inc/i2c-lcd.h ../Core/Inc/server_button.h
 ../Core/Inc/ryg-leds.h:
 ../Core/Inc/traffic.h:
 ../Core/Inc/main.h:
@@ -65,3 +65,4 @@ Core/Src/ryg-leds.o: ../Core/Src/ryg-leds.c ../Core/Inc/ryg-leds.h \
 ../Core/Inc/scheduler.h:
 ../Core/Inc/test_module.h:
 ../Core/Inc/i2c-lcd.h:
+../Core/Inc/server_button.h:
