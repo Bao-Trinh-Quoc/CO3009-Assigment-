@@ -2,7 +2,7 @@
 ../Core/Src/fsm.c:30:6:fsmAutoProcessing	1
 ../Core/Src/fsm.c:34:6:fsmAuto	1
 ../Core/Src/fsm.c:47:6:fsmManualStop	1
-../Core/Src/fsm.c:52:6:fsmManualProcessing	11
+../Core/Src/fsm.c:52:6:fsmManualProcessing	13
 ../Core/Src/fsm.c:85:6:fsmManual	1
 ../Core/Src/fsm.c:93:6:fsmTunningStop	1
 ../Core/Src/fsm.c:97:6:fsmTunningProcessing	25

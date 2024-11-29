@@ -50,7 +50,7 @@ void fsmManualStop(void) {
 }
 
 void fsmManualProcessing(void) {
-	if (buttonPressed(1)) {
+	if (buttonPressed(1) || server_button_pressed(1)) {
 		switch (trafficStates[0]) {
 		case TRAFFIC_RED:
 			SCH_AddTask(traffic0Green, 0, 0);
@@ -65,7 +65,7 @@ void fsmManualProcessing(void) {
 			break;
 		}
 	}
-	if (buttonPressed(2)) {
+	if (buttonPressed(2) || server_button_pressed(2)) {
 		switch (trafficStates[1]) {
 		case TRAFFIC_RED:
 			SCH_AddTask(traffic1Green, 0, 0);
