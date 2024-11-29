@@ -18,7 +18,7 @@ void LCD_I2C_Clear();
 void LCD_I2C_Location(uint8_t x, uint8_t y);
 void LCD_I2C_Write_String(char* string);
 void LCD_I2C_Write_Number(int number);
-
+// Application layer
 void lcd_init_display();
 void lcd_auto_display();
 void lcd_manual_display();

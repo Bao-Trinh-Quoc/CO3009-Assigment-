@@ -90,7 +90,7 @@ void LCD_I2C_Write_Number(int number)
     sprintf(buffer,"%d",number);
     LCD_I2C_Write_String(buffer);
 }
-
+// Application layer
 void lcd_init_display() {
 	LCD_I2C_Clear();
 	LCD_I2C_Location(0, 2);

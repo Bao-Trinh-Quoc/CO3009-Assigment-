@@ -76,6 +76,10 @@ void Error_Handler(void);
 #define CONTROL_TRAFFIC1_1_GPIO_Port GPIOB
 #define BUTTON1_Pin GPIO_PIN_10
 #define BUTTON1_GPIO_Port GPIOB
+#define SERVER_BUTTON2_Pin GPIO_PIN_6
+#define SERVER_BUTTON2_GPIO_Port GPIOC
+#define SERVER_BUTTON3_Pin GPIO_PIN_8
+#define SERVER_BUTTON3_GPIO_Port GPIOC
 #define BUTTON2_Pin GPIO_PIN_8
 #define BUTTON2_GPIO_Port GPIOA
 #define BUTTON3_Pin GPIO_PIN_9
@@ -84,6 +88,10 @@ void Error_Handler(void);
 #define TMS_GPIO_Port GPIOA
 #define TCK_Pin GPIO_PIN_14
 #define TCK_GPIO_Port GPIOA
+#define SERVER_BUTTON0_Pin GPIO_PIN_10
+#define SERVER_BUTTON0_GPIO_Port GPIOC
+#define SERVER_BUTTON1_Pin GPIO_PIN_11
+#define SERVER_BUTTON1_GPIO_Port GPIOC
 #define SWO_Pin GPIO_PIN_3
 #define SWO_GPIO_Port GPIOB
 #define BUTTON0_Pin GPIO_PIN_4
