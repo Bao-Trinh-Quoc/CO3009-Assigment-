@@ -212,9 +212,7 @@ void fsmTunning(void) {
 
 void fsmInit(void) {
 	fsmState = FSM_INIT;
-	SCH_AddTask(lcd_init_display, 0, 0);
-//	fsmIDs[0] = SCH_AddTask(testLED, 0, 0);
-//	SCH_AddTask(testButton, 0, TIMER_TICK);
+//	SCH_AddTask(lcd_init_display, 0, 0);
 }
 
 void fsmProcessing(void) {

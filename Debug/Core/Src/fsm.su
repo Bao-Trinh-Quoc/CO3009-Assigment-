@@ -7,5 +7,5 @@
 ../Core/Src/fsm.c:93:6:fsmTunningStop	4	static
 ../Core/Src/fsm.c:97:6:fsmTunningProcessing	8	static
 ../Core/Src/fsm.c:202:6:fsmTunning	8	static
-../Core/Src/fsm.c:213:6:fsmInit	8	static
+../Core/Src/fsm.c:213:6:fsmInit	4	static
 ../Core/Src/fsm.c:220:6:fsmProcessing	16	static
