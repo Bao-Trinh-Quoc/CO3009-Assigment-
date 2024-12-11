@@ -34,7 +34,6 @@ void fsmAutoProcessing(void) {
 void fsmAuto(void) {
 	fsmAutoIDs[0] = SCH_AddTask(fsmAutoProcessing, 10, TIMER_TICK);
 	fsmAutoIDs[1] = SCH_AddTask(counterRun, 0, TIMER_TICK);
-//	fsmAutoIDs[2] = SCH_AddTask(lcd_auto_display, 0, 1000);
 	fsmAutoIDs[2] = SCH_AddTask(traffic0Red, 0, trafficRedDuration + trafficYellowDuration + trafficGreenDuration);
 	fsmAutoIDs[3] = SCH_AddTask(traffic0Green, trafficRedDuration, trafficRedDuration + trafficYellowDuration + trafficGreenDuration);
 	fsmAutoIDs[4] = SCH_AddTask(traffic0Yellow, trafficRedDuration + trafficGreenDuration, trafficRedDuration + trafficYellowDuration + trafficGreenDuration);
@@ -212,7 +211,6 @@ void fsmTunning(void) {
 
 void fsmInit(void) {
 	fsmState = FSM_INIT;
-//	SCH_AddTask(lcd_init_display, 0, 0);
 }
 
 void fsmProcessing(void) {
